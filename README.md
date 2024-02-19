@@ -22,3 +22,7 @@
     <li>Артур Паничев - реализация пользовательского интерфейса</li>
     <li>Глеб Пушин, Денис Дунаев - Backend</li>
 </ul>
+
+
+![image](https://github.com/GlebEvemi/322Case/assets/128219166/c252bfec-d789-4ffb-ba67-dd96fc8a36e2)
+
