@@ -43,8 +43,14 @@ Table trade_item {
   is_from boolean
 }
 
-Ref: users.id > user_item.user_id
-Ref: users.id > trades.from_id
-Ref: users.id > trades.to_id
-Ref: cases.id > case_item.case_id
-Ref: items.id > case_item.item_id
+Ref: users.id <> user_item.user_id
+Ref: items.id <> user_item.item_id
+
+Ref: users.id < trades.from_id
+Ref: users.id < trades.to_id
+
+Ref: cases.id <> case_item.case_id
+Ref: items.id <> case_item.item_id
+
+Ref: items.id > trade_item.item_id
+Ref: trades.id > trade_item.trade_id
