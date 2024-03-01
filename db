@@ -1,0 +1,50 @@
+/* dbdiagram.io */
+Table users {
+  id int pk
+  username varchar
+  password varchar
+  balance bigint
+}
+
+Table cases {
+  id int pk
+  name varchar
+  img_url varchar
+  price bigint
+}
+
+Table items {
+  id int pk
+  name varchar
+  price bigint
+}
+
+Table trades {
+  id int pk
+  from_id varchar
+  to_id varchar
+}
+
+
+Table user_item {
+  user_id int
+  item_id int
+}
+
+Table case_item {
+  case_id int
+  item_id int
+  chance int
+}
+
+Table trade_item {
+  trade_id int
+  item_id int
+  is_from boolean
+}
+
+Ref: users.id > user_item.user_id
+Ref: users.id > trades.from_id
+Ref: users.id > trades.to_id
+Ref: cases.id > case_item.case_id
+Ref: items.id > case_item.item_id
