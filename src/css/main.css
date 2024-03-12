@@ -61,9 +61,8 @@ header .userData{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
-#username{
+#username, #balance{
     color: #fff;
 }
 header .btn{
@@ -93,5 +92,5 @@ header .btn{
 #loginBtn:hover{
     cursor: pointer;
     background-color: #e69d5d;
-    color: #fff;
+    color: #000;
 }

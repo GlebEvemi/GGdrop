@@ -14,6 +14,8 @@ main{
     transition: 0.33s;
     border: 2px solid #e69d5d;
     padding: 24px;
+    width: 260px;
+    height: 380px;
 }
 .caseCard img{
     width: 250px;

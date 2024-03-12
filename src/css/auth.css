@@ -1,0 +1,60 @@
+h2{
+    color: #e69d5d;
+}
+main{
+    max-width: 1280px;
+    margin: 128px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px;
+    border: 2px solid #e69d5d;
+    padding: 24px;
+    border-radius: 24px;
+    width: 320px;
+    height: 500px;
+}
+input{
+    margin: 18px 0;
+    background-color: transparent;
+    border: 2px solid #e69d5d;
+    border-radius: 14px;
+    padding: 7px 14px;
+    color: #fff;
+    outline: none;
+}
+span:has(input){
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+span:has(input:is([type="text"], [type="password"], [type="email"]))::before{
+    content: attr(data-label);
+    position: absolute;
+    left: 14px;
+    color: #e69d5d;
+    transition: 0.33s;
+    pointer-events: none;
+}
+span:has(input:is([type="text"], [type="password"], [type="email"]):is(:focus, :not(:placeholder-shown)))::before{
+    transform: translate(0, -30px);
+}
+input[type="submit"]{
+    color: #e69d5d;
+    font-weight: 900;
+    transition: 0.33s;
+}
+input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #e69d5d;
+    color: #000;
+}
