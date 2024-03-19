@@ -80,17 +80,24 @@ input[type="submit"]:hover{
     background-color: #e69d5d;
     color: #000;
 }
+#registerForm{
+    display: none;
+}
 [data-switch="0"] #loginForm{
     animation: 1s displayAnim forwards;
+    display: flex;
 }
 [data-switch="0"] #registerForm{
     animation: 1s hideAnim forwards;
+    display: none;
 }
 [data-switch="1"] #loginForm{
     animation: 1s hideAnim forwards;
+    display: none;
 }
 [data-switch="1"] #registerForm{
     animation: 1s displayAnim forwards;
+    display: flex;
 }
 @keyframes hideAnim {
     from {
