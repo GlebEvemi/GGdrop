@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/src/css/main.css">
     <link rel="shortcut icon" href="/src/assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/src/css/auth.css">
+    <script defer src="../js/auth.js"></script>
 </head>
 <body>
     <header>
@@ -29,8 +30,12 @@
         </div>
     </header>
 
-    <main>
-        <form>
+    <main data-switch="0">
+        <div id="switchLoginRegister">
+            <p>Еще нет аккаунта?</p>
+            <button>Зарегестрироваться</button>
+        </div>
+        <form id="loginForm" action="/login-user" onsubmit="return false">
             <h2>Аутентификация</h2>
             <span data-label="Логин">
                 <input id="login" name="login" type="text" placeholder="">
@@ -40,7 +45,7 @@
             </span>
             <input type="submit" value="Войти">
         </form>
-        <form>
+        <form id="registerForm" action="register-user" onsubmit="return false">
             <h2>Регистрация</h2>
             <span data-label="Имя">
                 <input id="firstname" name="firstname" type="text" placeholder="">
@@ -57,9 +62,7 @@
             <span data-label="Пароль">
                 <input id="password" name="password" type="password" placeholder="">
             </span>
-            <span>
-                <input type="submit" value="Зарегистрироваться">
-            </span>
+            <input type="submit" value="Зарегистрироваться">
         </form>
     </main>
 </body>

@@ -3,15 +3,16 @@ h2{
 }
 main{
     max-width: 1280px;
-    margin: 128px auto;
+    margin: 128px auto 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    position: relative;
 }
 form{
-    text-align: center;
     display: flex;
+    text-align: center;
     flex-direction: column;
     justify-content: center;
     margin: 24px;
@@ -20,12 +21,15 @@ form{
     border-radius: 24px;
     width: 320px;
     height: 500px;
+
+    position: absolute;
+    top: 100px;
 }
 input{
     margin: 18px 0;
-    background-color: transparent;
-    border: 2px solid #e69d5d;
-    border-radius: 14px;
+    background-color: #2b2b2b;
+    border: none;
+    border-bottom: 2px solid #e69d5d;
     padding: 7px 14px;
     color: #fff;
     outline: none;
@@ -41,7 +45,7 @@ span:has(input:is([type="text"], [type="password"], [type="email"]))::before{
     content: attr(data-label);
     position: absolute;
     left: 14px;
-    color: #e69d5d;
+    color: #fff;
     transition: 0.33s;
     pointer-events: none;
 }
@@ -49,6 +53,8 @@ span:has(input:is([type="text"], [type="password"], [type="email"]):is(:focus, :
     transform: translate(0, -30px);
 }
 input[type="submit"]{
+    border: 2px solid #e69d5d;
+    border-radius: 12px;
     color: #e69d5d;
     font-weight: 900;
     transition: 0.33s;
@@ -57,4 +63,54 @@ input[type="submit"]:hover{
     cursor: pointer;
     background-color: #e69d5d;
     color: #000;
+}
+#switchLoginRegister{
+    text-align: center;
+}
+#switchLoginRegister button {
+    background-color: transparent;
+    border: 2px solid #e69d5d;
+    color: #e69d5d;
+    border-radius: 12px;
+    padding: 7px 24px;
+    transition: 0.33s ease;
+}
+#switchLoginRegister button:hover{
+    cursor: pointer;
+    background-color: #e69d5d;
+    color: #000;
+}
+[data-switch="0"] #loginForm{
+    animation: 1s displayAnim forwards;
+}
+[data-switch="0"] #registerForm{
+    animation: 1s hideAnim forwards;
+}
+[data-switch="1"] #loginForm{
+    animation: 1s hideAnim forwards;
+}
+[data-switch="1"] #registerForm{
+    animation: 1s displayAnim forwards;
+}
+@keyframes hideAnim {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50px, 0);
+        display: none;
+    }
+}
+@keyframes displayAnim {
+    from {
+        opacity: 0;
+        transform: translate(50px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+        display: flex;
+    }
 }
