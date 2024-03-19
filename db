@@ -16,6 +16,7 @@ Table cases {
 Table items {
   id int pk
   name varchar
+  img_url varchar
   price bigint
 }
 
