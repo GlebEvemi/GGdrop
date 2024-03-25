@@ -1,6 +1,7 @@
 package org.pago.ggdrop.controller;
 
 import org.pago.ggdrop.dto.UserDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,9 @@ import org.pago.ggdrop.repository.UserRepository;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private UserRepository userRepository;
 
 
 
@@ -39,9 +43,10 @@ public class HomeController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        //UserRepository.save(user);
+        userRepository.save(user);
 
-        return "register_success";
+        return "index";
+
     }
 
 }
