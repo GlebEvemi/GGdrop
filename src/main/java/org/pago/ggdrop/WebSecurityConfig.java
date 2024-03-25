@@ -48,7 +48,6 @@ public class WebSecurityConfig{
                 .formLogin(login ->
                         login.usernameParameter("email")
                                 .defaultSuccessUrl("/index")
-                                .loginProcessingUrl("/process-login")
                                 .loginPage("/auth")
                                 .permitAll()
                 )

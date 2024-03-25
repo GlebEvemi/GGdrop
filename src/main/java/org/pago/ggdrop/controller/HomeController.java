@@ -45,9 +45,8 @@ public class HomeController {
 
     }
     @PostMapping("/login")
-    public String processLogin(User user) {
-
-        return "auth";
+    public String processLogin() {
+        return "login";
 
     }
 }
