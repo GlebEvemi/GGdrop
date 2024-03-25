@@ -35,17 +35,18 @@
             <p>Еще нет аккаунта?</p>
             <button>Зарегестрироваться</button>
         </div>
-        <form id="loginForm" th:action="@{/process-login}">
+        <form id="loginForm" th:action="@{/login}" th:object="${user}">
             <h2>Аутентификация</h2>
-            <span data-label= "Мэйл">
-                <input id="login" th:field="*{email}" name="login" type="text" placeholder="">
+            <span data-label="Мэйл">
+                <input id="login" th:field="*{email}"name="login" type="text" placeholder="">
             </span>
             <span data-label="Пароль">
                 <input id="password" th:field="*{password}" name="password" type="password" placeholder="">
             </span>
             <input type="submit" value="Войти">
         </form>
-        <form id="registerForm" th:action="@{/register}" th:object="${user}" method="post">
+        <form id="registerForm" th:action="@{/register}" th:object="${user}"
+              method="post">
             <h2>Регистрация</h2>
             <span data-label="Имя">
                 <input id="firstname" th:field="*{firstName}" name="firstname" type="text" placeholder="">
