@@ -8,38 +8,43 @@
     <link rel="stylesheet" href="/src/css/main.css">
     <link rel="stylesheet" href="/src/css/style.css">
     <link rel="shortcut icon" href="/src/assets/img/icon.png" type="image/x-icon">
+    <script defer src="./src/js/header.js"></script>
 </head>
 <body>
     <header>
         <div class="header_wrapper">
             <ul class="nav">
-                <li class="logo"><a href="/"><img src="./src/assets/img/logo.png" alt="GGDROP"></a></li>
+                <li class="logo">
+                    <a href="/"><img src="./src/assets/img/logo.png" alt="GGDROP"></a>
+                    <button id="mobMenuBtn"><img src="./src/assets/img/burger.svg" alt="openmenu"></button>
+                </li>
                 <li><a href="/">Кейсы</a></li>
                 <li><a href="/src/pages/inventory.html">Инвентарь</a></li>
             </ul>
             <div class="userData">
-<!--                 <p>Вы вошли как <span id="username">Gleb</span></p>
-                <p>Баланс: <span id="balance">$100</span></p>
+                <!-- <div>
+                    <p>Вы вошли как <span id="username">Gleb</span></p>
+                    <p>Баланс: <span id="balance">$100</span></p>
+                </div>
                 <div>
                     <a href="#" class="btn" id="logoutBtn">Выйти</a>
                 </div> -->
 
                 <a href="/src/pages/auth.html" class="btn" id="loginBtn">Войти</a>
-
             </div>
         </div>
     </header>
     <main>
-        <div class="caseCard">
+        <a href="./src/pages/case-open.html" class="caseCard">
             <p>Кейс Змеиный укус</p>
             <img src="./src/assets/img/cases/snakebite/case.png" alt="case">
             <p class="price">$1</p>
-        </div>
-        <div class="caseCard">
+        </a>
+        <a href="./src/pages/case-open.html" class="caseCard">
             <p> Гамма Кейс</p>
             <img src="./src/assets/img/cases/gamma/case.webp" alt="case">
             <p class="price">$2</p>
-        </div>
+        </a>
     </main>
 </body>
 </html>

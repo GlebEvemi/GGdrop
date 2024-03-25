@@ -9,23 +9,29 @@
     <link rel="shortcut icon" href="/src/assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/src/css/auth.css">
     <script defer src="../js/auth.js"></script>
+    <script defer src="../js/header.js"></script>
 </head>
 <body>
     <header>
         <div class="header_wrapper">
             <ul class="nav">
-                <li class="logo"><a href="/"><img src="/src/assets/img/logo.png" alt="GGDROP"></a></li>
+                <li class="logo">
+                    <a href="/"><img src="../assets/img/logo.png" alt="GGDROP"></a>
+                    <button id="mobMenuBtn"><img src="../assets/img/burger.svg" alt="openmenu"></button>
+                </li>
                 <li><a href="/">Кейсы</a></li>
                 <li><a href="/src/pages/inventory.html">Инвентарь</a></li>
             </ul>
             <div class="userData">
-                <!-- <p>Вы вошли как <span id="username">Gleb</span></p>
+                <!-- <div>
+                    <p>Вы вошли как <span id="username">Gleb</span></p>
+                    <p>Баланс: <span id="balance">$100</span></p>
+                </div>
                 <div>
                     <a href="#" class="btn" id="logoutBtn">Выйти</a>
                 </div> -->
 
                 <a href="/src/pages/auth.html" class="btn" id="loginBtn">Войти</a>
-
             </div>
         </div>
     </header>
@@ -33,7 +39,7 @@
     <main data-switch="">
         <div id="switchLoginRegister">
             <p>Еще нет аккаунта?</p>
-            <button>Зарегестрироваться</button>
+            <button>Зарегистрироваться</button>
         </div>
         <form id="loginForm" action="/login-user" onsubmit="return false">
             <h2>Аутентификация</h2>
@@ -57,10 +63,10 @@
                 <input id="email" name="email" type="email" placeholder="">
             </span>
             <span data-label="Логин">
-                <input id="login" name="login" type="text" placeholder="">
+                <input id="loginReg" name="login" type="text" placeholder="">
             </span>
             <span data-label="Пароль">
-                <input id="password" name="password" type="password" placeholder="">
+                <input id="passwordReg" name="password" type="password" placeholder="">
             </span>
             <input type="submit" value="Зарегистрироваться">
         </form>

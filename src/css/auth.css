@@ -1,5 +1,6 @@
 h2{
     color: #e69d5d;
+    word-wrap: break-word;
 }
 main{
     max-width: 1280px;
@@ -19,7 +20,7 @@ form{
     border: 2px solid #e69d5d;
     padding: 24px;
     border-radius: 24px;
-    width: 320px;
+    width: min(320px, 70vw);
     height: 500px;
 
     position: absolute;
@@ -59,7 +60,7 @@ input[type="submit"]{
     font-weight: 900;
     transition: 0.33s;
 }
-input[type="submit"]:hover{
+input[type="submit"]:active{
     cursor: pointer;
     background-color: #e69d5d;
     color: #000;
@@ -74,8 +75,9 @@ input[type="submit"]:hover{
     border-radius: 12px;
     padding: 7px 24px;
     transition: 0.33s ease;
+    font-size: min(14px, 5vw);
 }
-#switchLoginRegister button:hover{
+#switchLoginRegister button:active{
     cursor: pointer;
     background-color: #e69d5d;
     color: #000;
@@ -119,5 +121,17 @@ input[type="submit"]:hover{
         opacity: 1;
         transform: translate(0, 0);
         display: flex;
+    }
+}
+@media(hover: hover) and (pointer: fine) {
+    input[type="submit"]:hover{
+        cursor: pointer;
+        background-color: #e69d5d;
+        color: #000;
+    }
+    #switchLoginRegister button:hover{
+        cursor: pointer;
+        background-color: #e69d5d;
+        color: #000;
     }
 }

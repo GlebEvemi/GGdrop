@@ -2,7 +2,7 @@ const authSwitch = document.getElementById("switchLoginRegister");
 const main = document.querySelector('main');
 
 const switchText = [
-    ['Еще нет аккаунта?', 'Зарегестрироваться'],
+    ['Еще нет аккаунта?', 'Зарегистрироваться'],
     ['Уже есть аккаунт?', 'Войти']
 ]
 

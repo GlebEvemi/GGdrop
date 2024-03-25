@@ -26,31 +26,48 @@ header li{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 14px;
 }
 header a{
     text-decoration: none;
 }
+header .nav {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 header .nav a{
     color: #fff;
-    padding: 7px 14px;
+    padding: 14px 24px;
     transition: 0.33s;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+header .nav a:not(:has(img))::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e69d5d;
+    transition: 0.33s;
+}
+header .nav li:not(:has(img)){
+    margin: 14px 0;
 }
 header .logo a img{
-    height: 60px;
+    width: min(180px, 30vw);
     -webkit-user-drag: none;
 }
-header a:hover{
+header a:active{
     color: #e69d5d;
 }
 .header_wrapper{
     max-width: 1280px;
     flex: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -60,8 +77,10 @@ header p{
 header .userData{
     color: #fff9;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
     justify-content: center;
+    flex-wrap: wrap;
 }
 #username, #balance{
     color: #fff;
@@ -81,7 +100,7 @@ header .btn{
     color: #e7645c;
     border: 2px solid #e7645c;
 }
-#logoutBtn:hover{
+#logoutBtn:active{
     cursor: pointer;
     background-color: #e7645c;
     color: #fff;
@@ -90,8 +109,54 @@ header .btn{
     color: #e69d5d;
     border: 2px solid #e69d5d;
 }
-#loginBtn:hover{
+#loginBtn:active{
     cursor: pointer;
     background-color: #e69d5d;
     color: #000;
+}
+#mobMenuBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+#mobMenuBtn img {
+    filter: invert(1);
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 40px;
+}
+@media(max-width: 600px) {
+    #mobMenuBtn {
+        display: inline-block;
+    }
+    header :is(.header_wrapper, .nav, .userData) {
+        flex-direction: column;
+    }
+    header:not(.opened) :is(li:not(.logo), .userData){
+        display: none;
+    }
+}
+@media(hover: hover) and (pointer: fine) {
+    #loginBtn:hover{
+        cursor: pointer;
+        background-color: #e69d5d;
+        color: #000;
+    }
+    #logoutBtn:hover{
+        cursor: pointer;
+        background-color: #e7645c;
+        color: #fff;
+    }
+    header a:hover{
+        color: #e69d5d;
+    }
+    header .nav a:not(:has(img)):hover::after{
+        width: 100%;
+    }
 }
