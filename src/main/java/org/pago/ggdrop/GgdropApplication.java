@@ -33,6 +33,7 @@ public class GgdropApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		//userRepository.save(new User("gleb2466@gmail.com", "1234","Gleb", "Pusin"));
 		/*userRepository.save(new User("gleb2466@gmail.com", "1234", "Gleb", "Pusin"));
 		userRepository.save(new User("denis322@gmail.com", "6789", "Denis", "Dunaev"));
 		userRepository.save(new User("artur666@gmail.com", "6666", "Artur", "Panitšev"));

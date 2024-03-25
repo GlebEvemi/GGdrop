@@ -26,19 +26,15 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/auth")
-    public String viewAuthPage(Model model){
-        return "auth";
-    }
 
-    @GetMapping("/register")
+    @GetMapping("/auth")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
 
-        return "registration";
+        return "auth";
     }
 
-    @PostMapping("/process_register")
+    @PostMapping("/register")
     public String processRegister(User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -48,5 +44,10 @@ public class HomeController {
         return "index";
 
     }
+    @PostMapping("/login")
+    public String processLogin(User user) {
 
+        return "index";
+
+    }
 }

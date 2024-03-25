@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,32 +35,30 @@
             <p>Еще нет аккаунта?</p>
             <button>Зарегестрироваться</button>
         </div>
-        <form id="loginForm" action="/login-user" onsubmit="return false">
+        <form id="loginForm" th:action="@{login-user}" th:object="${user}" onsubmit="return false">
             <h2>Аутентификация</h2>
-            <span data-label="Логин">
-                <input id="login" name="login" type="text" placeholder="">
+            <span data-label="Мэйл">
+                <input id="login" th:field="*{email}"name="login" type="text" placeholder="">
             </span>
             <span data-label="Пароль">
-                <input id="password" name="password" type="password" placeholder="">
+                <input id="password" th:field="*{password}" name="password" type="password" placeholder="">
             </span>
             <input type="submit" value="Войти">
         </form>
-        <form id="registerForm" action="register-user" onsubmit="return false">
+        <form id="registerForm" th:action="@{/register}" th:object="${user}"
+              method="post">
             <h2>Регистрация</h2>
             <span data-label="Имя">
-                <input id="firstname" name="firstname" type="text" placeholder="">
+                <input id="firstname" th:field="*{firstName}" name="firstname" type="text" placeholder="">
             </span>
             <span data-label="Фамилия">
-                <input id="lastname" name="lastname" type="text" placeholder="">
+                <input id="lastname" th:field="*{lastName}" name="lastname" type="text" placeholder="">
             </span>
             <span data-label="Почта">
-                <input id="email" name="email" type="email" placeholder="">
-            </span>
-            <span data-label="Логин">
-                <input id="login" name="login" type="text" placeholder="">
+                <input id="email" name="email" type="email" th:field="*{email}" placeholder="">
             </span>
             <span data-label="Пароль">
-                <input id="password" name="password" type="password" placeholder="">
+                <input id="passwordReg" th:field="*{password}" name="password" type="password" placeholder="">
             </span>
             <input type="submit" value="Зарегистрироваться">
         </form>
