@@ -175,11 +175,19 @@ const caseData = {
                 img: "cases/gloves/24.png"
             }
         }
+    }
+}
+
+const openCaseData = {
+    case: {
+        name: "Кейс Змеиный укус",
+        img: "cases/snakebite/case.png"
     },
     recived: {
         "UMP-45 | Осциллятор": {
             price: 0.41,
-            img: "cases/snakebite/1.png"
+            img: "cases/snakebite/1.png",
+            rarity: 0
         }
     }
 }
