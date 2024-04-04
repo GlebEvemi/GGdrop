@@ -3,8 +3,10 @@ main{
     margin: 200px auto;
 }
 .inventory{
-    display: flex;
-    flex-wrap: wrap;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 24px;
 }
 .item{
     display: flex;
