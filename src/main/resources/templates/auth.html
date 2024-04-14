@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGDROP</title>
+    <link rel="stylesheet" href="/css/OpenSans-font.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="/assets/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/auth.css">
+    <script defer src="/js/auth.js"></script>
+    <script defer src="/js/header.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header_wrapper">
+            <ul class="nav">
+                <li class="logo"><a href="/"><img src="/assets/img/logo.png" alt="GGDROP"></a></li>
+                <li><a href="/">Кейсы</a></li>
+                <li><a href="/inventory">Инвентарь</a></li>
+                <!--<li><div sec:authorize="isAuthenticated()"><a href="/inventory">Инвентарь</a></div><div sec:authorize="!isAuthenticated()"><a href="/auth">Инвентарь</a></div></li>-->
+            </ul>
+            <div class="userData">
+                <div sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+
+                        <p>Вы вошли как <span id="username"><span sec:authentication="principal.FirstName"></span> <span sec:authentication="principal.LastName"></span></span></p>
+                        <p>Баланс: $<span id="balance" sec:authentication="principal.Balance"></span></p>
+                        <input class="btn" id="logoutBtn" type="submit" value="Sign Out" />
+                    </form>
+                </div>
+
+                <div sec:authorize="!isAuthenticated()">
+                    <a href="/auth" class="btn" id="loginBtn">Войти</a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </header>
+
+    <main data-switch="">
+        <div id="switchLoginRegister">
+            <p>Еще нет аккаунта?</p>
+            <button>Зарегистрироваться</button>
+        </div>
+        <form th:action="@{/login}" th:object="${user}" method="post">
+            <h2>Аутентификация</h2>
+            <span data-label="Логин">
+                 <input id="login" th:field="*{email}" name="login" type="text" placeholder="">
+            </span>
+            <span data-label="Пароль">
+                <input id="password" th:field="*{password}" name="password" type="password" placeholder="">
+            </span>
+            <input type="submit" value="Войти">
+        </form>
+        <form id="registerForm" th:action="@{/register}" th:object="${user}"
+              method="post">
+            <h2>Регистрация</h2>
+            <span data-label="Имя">
+                <input id="firstname" th:field="*{firstName}" name="firstname" type="text" placeholder="">
+            </span>
+
+            <span data-label="Фамилия">
+                <input id="lastname" th:field="*{lastName}" name="lastname" type="text" placeholder="">
+            </span>
+            <span data-label="Почта">
+                <input id="email" name="email" type="email" th:field="*{email}" placeholder="">
+            </span>
+            <span data-label="Пароль">
+                <input id="passwordReg" th:field="*{password}" name="password" type="password" placeholder="">
+            </span>
+            <input type="submit" value="Зарегистрироваться">
+        </form>
+    </main>
+</body>
+</html>

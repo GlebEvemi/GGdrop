@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/OpenSans-font.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/case-open.css">
+    <script defer src="/js/caseOpen.js"></script>
+    <script defer src="/js/header.js"></script>
+</head>
+<body>
+    <header th:insert="auth.html :: header"> </header>
+    <main>
+        <div class="opening">
+            <img class="case" src="/assets/img/cases/snakebite/case.png" alt="">
+            <div class="item">
+                <div class="item_content">
+                    <p>Вы получили</p>
+                    <p th:text="${item.getName()}"></p>
+                    <img th:src="${item.getImage_url()}" alt="">
+                    <p>$<span th:text="${item.getPrice()}"></span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

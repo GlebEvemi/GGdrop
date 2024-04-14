@@ -1,0 +1,162 @@
+body{
+    margin: 0;
+    background-color: #111;
+    color: #fff;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 70px;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 24px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+header ul{
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+header li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header a{
+    text-decoration: none;
+}
+header .nav {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+header .nav a{
+    color: #fff;
+    padding: 14px 24px;
+    transition: 0.33s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+header .nav a:not(:has(img))::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e69d5d;
+    transition: 0.33s;
+}
+header .nav li:not(:has(img)){
+    margin: 14px 0;
+}
+header .logo a img{
+    width: min(180px, 30vw);
+    -webkit-user-drag: none;
+}
+header a:active{
+    color: #e69d5d;
+}
+.header_wrapper{
+    max-width: 1280px;
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+header p{
+    margin: 0;
+}
+header .userData{
+    color: #fff9;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#username, #balance{
+    color: #fff;
+}
+header .btn{
+    margin: 7px 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: transparent;
+    transition: 0.33s;
+}
+#logoutBtn{
+    color: #e7645c;
+    border: 2px solid #e7645c;
+}
+#logoutBtn:active{
+    cursor: pointer;
+    background-color: #e7645c;
+    color: #fff;
+}
+#loginBtn{
+    color: #e69d5d;
+    border: 2px solid #e69d5d;
+}
+#loginBtn:active{
+    cursor: pointer;
+    background-color: #e69d5d;
+    color: #000;
+}
+#mobMenuBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+#mobMenuBtn img {
+    filter: invert(1);
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 40px;
+}
+@media(max-width: 600px) {
+    #mobMenuBtn {
+        display: inline-block;
+    }
+    header :is(.header_wrapper, .nav, .userData) {
+        flex-direction: column;
+    }
+    header:not(.opened) :is(li:not(.logo), .userData){
+        display: none;
+    }
+}
+@media(hover: hover) and (pointer: fine) {
+    #loginBtn:hover{
+        cursor: pointer;
+        background-color: #e69d5d;
+        color: #000;
+    }
+    #logoutBtn:hover{
+        cursor: pointer;
+        background-color: #e7645c;
+        color: #fff;
+    }
+    header a:hover{
+        color: #e69d5d;
+    }
+    header .nav a:not(:has(img)):hover::after{
+        width: 100%;
+    }
+}

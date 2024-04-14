@@ -1,0 +1,52 @@
+main{
+    max-width: 1280px;
+    margin: 200px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+h1, div:not(:nth-last-child(1)){
+    text-align: center;
+}
+.btn{
+    margin: 7px 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    border-radius: 7px;
+    background-color: transparent;
+    transition: 0.33s;
+    cursor: pointer;
+    color: #e69d5d;
+    border: 2px solid #e69d5d;
+    text-decoration: none;
+}
+.btn:active{
+    background-color: #e69d5d;
+    color: #111;
+}
+.items_content{
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 24px;
+}
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #6872ff;
+}
+.item img{
+    max-width: 200px;
+    max-height: 200px;
+}
+@media (hover: hover) and (pointer: fine){
+    .btn:hover{
+        background-color: #e69d5d;
+        color: #111;
+    }
+}

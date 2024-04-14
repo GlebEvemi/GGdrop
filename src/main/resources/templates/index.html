@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGDROP</title>
+    <link rel="stylesheet" href="/css/OpenSans-font.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/assets/img/icon.png" type="image/x-icon">
+</head>
+<body>
+    <header th:insert="auth.html :: header"> </header>
+    <main>
+        <a href="/case" class="caseCard">
+            <p>Кейс Змеиный укус</p>
+            <img src="/assets/img/cases/snakebite/case.png" alt="case">
+            <p class="price">$1</p>
+        </a>
+    </main>
+</body>
+</html>

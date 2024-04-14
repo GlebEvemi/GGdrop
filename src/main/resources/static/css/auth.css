@@ -1,0 +1,137 @@
+h2{
+    color: #e69d5d;
+    word-wrap: break-word;
+}
+main{
+    max-width: 1280px;
+    margin: 128px auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+form{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px;
+    border: 2px solid #e69d5d;
+    padding: 24px;
+    border-radius: 24px;
+    width: min(320px, 70vw);
+    height: 500px;
+
+    position: absolute;
+    top: 100px;
+}
+input{
+    margin: 18px 0;
+    background-color: #2b2b2b;
+    border: none;
+    border-bottom: 2px solid #e69d5d;
+    padding: 7px 14px;
+    color: #fff;
+    outline: none;
+}
+span:has(input){
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+span:has(input:is([type="text"], [type="password"], [type="email"]))::before{
+    content: attr(data-label);
+    position: absolute;
+    left: 14px;
+    color: #fff;
+    transition: 0.33s;
+    pointer-events: none;
+}
+span:has(input:is([type="text"], [type="password"], [type="email"]):is(:focus, :not(:placeholder-shown)))::before{
+    transform: translate(0, -30px);
+}
+input[type="submit"]{
+    border: 2px solid #e69d5d;
+    border-radius: 12px;
+    color: #e69d5d;
+    font-weight: 900;
+    transition: 0.33s;
+}
+input[type="submit"]:active{
+    cursor: pointer;
+    background-color: #e69d5d;
+    color: #000;
+}
+#switchLoginRegister{
+    text-align: center;
+}
+#switchLoginRegister button {
+    background-color: transparent;
+    border: 2px solid #e69d5d;
+    color: #e69d5d;
+    border-radius: 12px;
+    padding: 7px 24px;
+    transition: 0.33s ease;
+    font-size: min(14px, 5vw);
+}
+#switchLoginRegister button:active{
+    cursor: pointer;
+    background-color: #e69d5d;
+    color: #000;
+}
+#registerForm{
+    display: none;
+}
+[data-switch="0"] #loginForm{
+    animation: 1s displayAnim forwards;
+    display: flex;
+}
+[data-switch="0"] #registerForm{
+    animation: 1s hideAnim forwards;
+    display: none;
+}
+[data-switch="1"] #loginForm{
+    animation: 1s hideAnim forwards;
+    display: none;
+}
+[data-switch="1"] #registerForm{
+    animation: 1s displayAnim forwards;
+    display: flex;
+}
+@keyframes hideAnim {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50px, 0);
+        display: none;
+    }
+}
+@keyframes displayAnim {
+    from {
+        opacity: 0;
+        transform: translate(50px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+        display: flex;
+    }
+}
+@media(hover: hover) and (pointer: fine) {
+    input[type="submit"]:hover{
+        cursor: pointer;
+        background-color: #e69d5d;
+        color: #000;
+    }
+    #switchLoginRegister button:hover{
+        cursor: pointer;
+        background-color: #e69d5d;
+        color: #000;
+    }
+}

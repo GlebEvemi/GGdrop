@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/OpenSans-font.css">
+    <link rel="shortcut icon" href="/assets/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/inventory.css">
+    <title>GGDROP</title>
+    <script defer src="../js/header.js"></script>
+</head>
+<body>
+    <header th:insert="auth.html :: header"> </header>
+    <main>
+        <div class="inventory">
+            <div class="item" th:each="user_item: ${user_items}">
+                <p th:text="${user_item.getItem_id().getName()}">UMP-45 | Осциллятор</p>
+                <img th:src="${user_item.getItem_id().getImage_url()}" alt="">
+                <p>$<span th:text="${user_item.getItem_id().getPrice()}"></span></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

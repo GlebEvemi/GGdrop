@@ -1,0 +1,61 @@
+main{
+    max-width: 1280px;
+    margin: 128px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.caseCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 24px;
+    border-radius: 14px;
+    transition: 0.33s;
+    border: 2px solid #e69d5d;
+    padding: 24px;
+    width: min(260px, 70vw);
+    height: 380px;
+    color: #fff;
+    text-decoration: none;
+}
+.caseCard img{
+    width: min(250px, 60vw);
+    transition: 0.33s;
+}
+.price{
+    background-color: #e69d5d;
+    padding: 7px 24px;
+    border-radius: 14px;
+    color: #000;
+    border: 2px solid #e69d5d;
+    transition: 0.33s;
+}
+@keyframes shake{
+    from{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+    75%{
+        transform: rotate(-5deg);
+    }
+    to{
+        transform: rotate(0) scale(1.1);
+    }
+}
+@media(hover: hover) and (pointer: fine) {
+    .caseCard:hover{
+        cursor: pointer;
+    }
+    .caseCard:hover img{
+        animation: shake 0.7s;
+        transform: scale(1.1);
+    }
+    .caseCard:hover .price{
+        background-color: transparent;
+        color: #e69d5d;
+    }
+}

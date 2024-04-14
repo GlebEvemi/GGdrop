@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/OpenSans-font.css">
+        <link rel="shortcut icon" href="/assets/img/icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/case.css">
+        <title>GGDROP</title>
+        <script defer src="../js/header.js"></script>
+    </head>
+<body>
+    <header th:insert="auth.html :: header"> </header>
+    <main>
+        <h1>Кейс "Змеиный укус"</h1>
+        <div><img src="/assets/img/cases/snakebite/case.png" alt=""></div>
+        <div sec:authorize = "isAuthenticated()">
+            <a class="btn" href="/case-open">Открыть кейс за $1</a>
+        </div>
+        <div sec:authorize = "!isAuthenticated()">
+            <a class="btn" href="/auth">Войти или Зарегистрироваться</a>
+        </div>
+        <div class="items">
+            <p>Кейс может содержать один из следующих предметов:</p>
+            <div class="items_content">
+
+                <div th:each="Item:${case_drop}" class="item">
+
+                    <p th:text="${Item.getName()}"></p>
+                    <img th:src="${Item.getImage_url()}" alt="item_img">
+                    <p>$<span th:text="${Item.getPrice()}"></span></p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
