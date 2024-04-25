@@ -8,18 +8,35 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/inventory.css">
     <title>GGDROP</title>
-    <script defer src="../js/header.js"></script>
+    <script defer src="/js/header.js"></script>
 </head>
 <body>
-    <header th:insert="auth.html :: header"> </header>
+<span th:insert="auth.html :: header"> </span>
     <main>
+        <form action="/add-balance" class="balanceAddingForm">
+            <label for="number">Добавить денег: </label>
+            <input type="number" name="number" id="number" placeholder="">
+            <input type="submit" value="Добавить">
+        </form>
+        <form action="/remove-balance" class="balanceAddingForm">
+            <input type="submit" value="Обнулить баланс">
+        </form>
+        <h1>Инвентарь</h1>
         <div class="inventory">
-            <div class="item" th:each="user_item: ${user_items}">
+            <div class="item" th:each="user_item: ${user_items}" th:attr="data-id=${user_item.getItem_id().getId()}">
                 <p th:text="${user_item.getItem_id().getName()}">UMP-45 | Осциллятор</p>
                 <img th:src="${user_item.getItem_id().getImage_url()}" alt="">
                 <p>$<span th:text="${user_item.getItem_id().getPrice()}"></span></p>
             </div>
         </div>
     </main>
+    <script>
+        const items = document.querySelectorAll('.item');
+        items.forEach((item) => {
+            item.addEventListener('click', () => {
+                window.location.href = '/sell-item?id=' + item.getAttribute("data-id");
+            })
+        })
+    </script>
 </body>
 </html>

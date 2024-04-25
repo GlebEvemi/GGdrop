@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.pago.ggdrop.repository.UserRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,30 @@ public class HomeController {
         userDetails.setBalance(userDetails.getBalance() - 1);
         model.addAttribute("item",userOpenCase(authentication, userDetails));
         return "case-open";
+    }
+
+    @GetMapping("/add-balance")
+    public String add_balance(@RequestParam("number") double number, Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetail userDetails = (CustomUserDetail) authentication.getPrincipal();
+        userDetails.setBalance(userDetails.getBalance() + number);
+        userRepository.save(userDetails.getUser());
+        return "redirect:/inventory";
+    }
+    @GetMapping("/remove-balance")
+    public String remove_balance(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetail userDetails = (CustomUserDetail) authentication.getPrincipal();
+        userDetails.setBalance(0);
+        userRepository.save(userDetails.getUser());
+        return "redirect:/inventory";
+    }
+    @GetMapping("/sell-item")
+    public String sell_item(@RequestParam("id") int number, Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetail userDetails = (CustomUserDetail) authentication.getPrincipal();
+        //Добавление баланса и удаление предмета + сохранение БД
+        return "redirect:/inventory";
     }
 
 

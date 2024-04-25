@@ -33,7 +33,9 @@ public class User {
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
 
-    private int balance;
+    @Getter
+    @Column(name = "balance", nullable = false)
+    private double balance;
 
     @OneToMany(mappedBy = "from_id")
     private List<Trade> outgoingTrades;
@@ -67,7 +69,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -75,7 +77,7 @@ public class User {
         return id;
     }
 
-    public int setBalance(int balance) {
+    public double setBalance(double balance) {
         this.balance = balance;
         return balance;
     }

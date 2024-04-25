@@ -15,7 +15,10 @@
     <header>
         <div class="header_wrapper">
             <ul class="nav">
-                <li class="logo"><a href="/"><img src="/assets/img/logo.png" alt="GGDROP"></a></li>
+                <li class="logo">
+                    <a href="/"><img src="/assets/img/logo.png" alt="GGDROP"></a>
+                    <button id="mobMenuBtn"><img src="/assets/img/burger.svg" alt="openmenu"></button>
+                </li>
                 <li><a href="/">Кейсы</a></li>
                 <li><a href="/inventory">Инвентарь</a></li>
                 <!--<li><div sec:authorize="isAuthenticated()"><a href="/inventory">Инвентарь</a></div><div sec:authorize="!isAuthenticated()"><a href="/auth">Инвентарь</a></div></li>-->
@@ -26,7 +29,7 @@
 
                         <p>Вы вошли как <span id="username"><span sec:authentication="principal.FirstName"></span> <span sec:authentication="principal.LastName"></span></span></p>
                         <p>Баланс: $<span id="balance" sec:authentication="principal.Balance"></span></p>
-                        <input class="btn" id="logoutBtn" type="submit" value="Sign Out" />
+                        <input class="btn" id="logoutBtn" type="submit" value="Выйти" />
                     </form>
                 </div>
 

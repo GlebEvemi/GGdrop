@@ -63,11 +63,11 @@ public class CustomUserDetail implements UserDetails {
         return user.getFirstName() + " " + user.getLastName();
     }
 
-    public int getBalance(){
+    public double getBalance(){
         return user.getBalance();
     }
 
-    public int setBalance(int balance){
+    public double setBalance(double balance){
         return user.setBalance(balance);
     }
 

@@ -14,8 +14,45 @@ main{
     align-items: center;
     flex-direction: column;
     background-color: #6872ff;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+.item::after{
+    content: 'Продать';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #e7645c;
+    transform: translate(0, -100%);
+    transition: 0.33s;
+    text-align: center;
+}
+.item:hover{
+    cursor: pointer;
+}
+.item:hover::after{
+    transform: translate(0, 0);
 }
 .item img{
     max-width: 200px;
     max-height: 200px;
+}
+.balanceAddingForm, h1{
+    text-align: center;
+}
+input{
+    margin: 18px 0;
+    background-color: #2b2b2b;
+    border: none;
+    border-bottom: 2px solid #e69d5d;
+    padding: 7px 14px;
+    color: #fff;
+    outline: none;
+}
+@media(max-width: 600px){
+    .item::after{
+        transform: translate(0, 0);
+    }
 }
