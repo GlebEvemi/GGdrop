@@ -17,9 +17,11 @@ public class User_item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JoinColumn(name = "user_id")
     @ManyToOne
     private User user_id;
 
+    @JoinColumn(name = "item_id")
     @ManyToOne
     private Item item_id;
 
@@ -29,6 +31,10 @@ public class User_item {
     }
     public Item getItem_id() {
         return item_id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public User getUser_id() {

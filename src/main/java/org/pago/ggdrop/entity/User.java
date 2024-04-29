@@ -43,6 +43,10 @@ public class User {
     @OneToMany(mappedBy = "to_id")
     private List<Trade> ingoingTrades;
 
+    public void setItems(List<User_item> items) {
+        this.items = items;
+    }
+
     @OneToMany(mappedBy = "user_id", fetch = FetchType.EAGER)
     private List<User_item> items;
 

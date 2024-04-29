@@ -79,6 +79,9 @@ public class CustomUserDetail implements UserDetails {
 
     public List<User_item> getUser_item(){return user.getItems();}
 
+    public void setUser_item(List<User_item> items){user.setItems(items);}
+
+
     public void addItem(User_item user_item){user.addItem(user_item);}
 
 }

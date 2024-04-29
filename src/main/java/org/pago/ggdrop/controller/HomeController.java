@@ -7,8 +7,10 @@ import org.pago.ggdrop.repository.UserItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -85,11 +87,18 @@ public class HomeController {
         userRepository.save(userDetails.getUser());
         return "redirect:/inventory";
     }
+    @Transactional
     @GetMapping("/sell-item")
-    public String sell_item(@RequestParam("id") int number, Model model) {
+    public String sell_item(@RequestParam("id") long number, Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetail userDetails = (CustomUserDetail) authentication.getPrincipal();
         //Добавление баланса и удаление предмета + сохранение БД
+
+        userDetails.setBalance(userDetails.getBalance() + itemRepository.findById(number).get().getPrice());
+
+        userItemRepository.deleteById(number);
+        userDetails.setUser_item(userItemRepository.findAllByUserId(userDetails.getUser()));
+        userRepository.save(userDetails.getUser());
         return "redirect:/inventory";
     }
 

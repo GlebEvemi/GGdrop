@@ -23,7 +23,7 @@
         </form>
         <h1>Инвентарь</h1>
         <div class="inventory">
-            <div class="item" th:each="user_item: ${user_items}" th:attr="data-id=${user_item.getItem_id().getId()}">
+            <div class="item" th:each="user_item: ${user_items}" th:attr="data-id=${user_item.getId()}">
                 <p th:text="${user_item.getItem_id().getName()}">UMP-45 | Осциллятор</p>
                 <img th:src="${user_item.getItem_id().getImage_url()}" alt="">
                 <p>$<span th:text="${user_item.getItem_id().getPrice()}"></span></p>
