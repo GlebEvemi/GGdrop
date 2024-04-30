@@ -7,3 +7,8 @@ mobMenuBtn.addEventListener('click', () => {
     }
     header.classList.add('opened');
 })
+
+const balance = document?.getElementById('balance');
+if(balance){
+    balance.innerText = Number(balance.innerText).toFixed(2);
+}

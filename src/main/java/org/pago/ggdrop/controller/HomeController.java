@@ -93,8 +93,7 @@ public class HomeController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetail userDetails = (CustomUserDetail) authentication.getPrincipal();
         //Добавление баланса и удаление предмета + сохранение БД
-
-        userDetails.setBalance(userDetails.getBalance() + itemRepository.findById(number).get().getPrice());
+        userDetails.setBalance(userDetails.getBalance() + itemRepository.findById(userItemRepository.findById(number).get().getItem_id().getId()).get().getPrice());
 
         userItemRepository.deleteById(number);
         userDetails.setUser_item(userItemRepository.findAllByUserId(userDetails.getUser()));

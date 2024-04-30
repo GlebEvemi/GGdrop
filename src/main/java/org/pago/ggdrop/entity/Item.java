@@ -25,7 +25,7 @@ public class Item {
 
     private String image_url;
 
-    private float price;
+    private double price;
 
     @OneToMany(mappedBy = "item_id")
     private List<Trade_item> trades;
@@ -62,11 +62,11 @@ public class Item {
         this.image_url = image_url;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
